@@ -35,6 +35,11 @@ class JobsController < ApplicationController
     # @employer = Employer.find_by(id: params[:employer_id])
     @employee = Employee.find_by(id: params[:employee_id])
     @jobs = Job.all
+
+    respond_to do |f|
+      f.html { render :index, layout: false }
+      f.json { render json: @jobs, status: 201 }
+    end
   end
 
   def upcoming_jobs
@@ -50,6 +55,10 @@ class JobsController < ApplicationController
   def my_created_jobs
     @employer = Employer.find_by(id: params[:employer_id])
     @jobs = @employer.jobs
+    respond_to do |f|
+      f.html { render :index }
+      f.json { render json: @jobs, status: 201 }
+    end
   end
 
   def destroy

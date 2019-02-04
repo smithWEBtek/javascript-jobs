@@ -22,8 +22,12 @@ class EmployersController < ApplicationController
   def show
     @employer = Employer.find_by(id: params[:id])
     if  current_user != @employer
-         redirect_to employer_path(@current_user)
-      end
+        redirect_to employer_path(@current_user)
+    end
+    respond_to do |format|
+      format.html {render :show, layout: true }
+      format.json {render json: @employer }
+    end
   end
 
 
@@ -34,9 +38,3 @@ class EmployersController < ApplicationController
     end
 
 end
-
-
-
-# name
-# uid
-# email

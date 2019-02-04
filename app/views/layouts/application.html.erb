@@ -4,8 +4,9 @@
     <title>PortofolioProjectJobs</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
   </head>
   <body>
 
@@ -27,8 +28,8 @@
       <%= link_to "Home", employee_path(@current_user), class: "navbar-brand"%>
     <% end %>
       <div  <% if @current_user == nil %> >
-              <%= link_to "Employer's Login", signin_employer_path, class: "btn btn-info"%>
-              <%= link_to "Employee's Login", signin_employee_path, class: "btn btn-info"%>
+              <%= link_to "Employer's Login", signin_employer_path, id: "employer-login", class: "btn btn-info"%>
+              <%= link_to "Employee's Login", signin_employee_path, id: "employee-login", class: "btn btn-info"%>
             <% end  %>
             <div  <% if @current_user  %> >
                   <%= link_to "Logout", logout_path,  class: "navbar-brand" %>
@@ -38,46 +39,27 @@
     </div>
   </div>
 </nav>
-    <!--  ///////////////////////////-->
-    <!-- <div  >
-      <div class="container">
-        <div >
-          <ul >
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <a class="navbar-brand" href="http://0.0.0.0:3000/">Home</a>
-            </button>
+<!-- ///////////////////////////  -->
 
-            <% if @current_user == nil %>
-              <button type="button" class="navbar-toggle btn btn-danger" data-toggle="collapse" data-target=".navbar-collapse">
-               <%= link_to "Employer's Login", signin_employer_path, class: "navbar-brand"%>
-              </button>
-              <button type="button"  data-toggle="collapse" data-target=".navbar-collapse">
-                <%= link_to "Employee's Login", signin_employee_path, class: "navbar-brand" %>
-              </button>
-            <% end %>
-            <% if @current_user  %>
-              <button type="button"  data-toggle="collapse" data-target=".navbar-collapse">
-                <%= link_to 'Logout', logout_path,  class: "navbar-brand" %>
-              </button>
-            <% end %>
-          </ul>
-        </div> --> <!--/.nav-collapse --><!--
-      </div>
-    </div>
-ari -->
     <div class="container">
       <br>
       <br>
+      <div id="employer-div-id" >
+       AJAX employer-div-id
+      </div>
+      <div id="employee-div-id" >
+       AJAX employee-div-id
+      </div>
+      <div id="jobs-div-id" >
+       AJAX jobs-div-id
+      </div>
 
         <%= yield %>
 
 
-    <br>
-    <br>
-    <br>
-    <br>
+
     <footer>
-<br>
+
       <p class="copyright text-muted">Copyright ©  <a href="http://aronroitblat.com/">aronroitblat.com</a> 2018</p>
     </footer>
     </div>

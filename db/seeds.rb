@@ -9,7 +9,9 @@
 
 
  #
- # Employer.create(name: "unedefind", password: "undefind", uid: "unedefind", email: "unedefind"  )
- # Employee.create(name: "unedefind", password: "undefind", uid: "unedefind", email: "unedefind"  )
- # Job.create(title: "unedefind", title:  "unedefind", address: "unedefind", state:  "unedefind", date: "unedefind")
- #
+ Employer.create(name: "John Williams", password: "123", uid: "unedefind", email: "john@gmail.com  "  )
+ Employee.create(name: "Robert Smith", password: "123", uid: "unedefind", email: "robert@gmail.com"  )
+ Job.create(title: "Garden service", employer_id:  "1", address: "123 Union St.", state:  "NY", date: "2020-03-28T00:00:00.000Z")
+ Job.create(title: "Home service", employer_id:  "1", address: "123 troy ave.", state:  "NY", date: "2019-12-28T00:00:00.000Z")
+ Job.create(title: "Cleaning service", employer_id:  "1", employee_id:  "1", address: "123 Union St.", state:  "NY", date: "2020-03-28T00:00:00.000Z")
+ 
