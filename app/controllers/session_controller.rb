@@ -17,15 +17,21 @@ class SessionController < ApplicationController
       session[:employer_id] = @employer.id
       redirect_to employer_path(@employer)
       # # render 'welcome/home'
+    #    respond_to do |f|
+    #   f.html { render :index, layout: false }
+    #   f.json { render json: @jobs, status: 201 }
+    # end
     end
     # binding.pry
   end
 
 
   def new_employer
+    render :new_employee, layout: false 
   end
 
   def new_employee
+    render :new_employee, layout: false 
   end
 
   def create_employer
