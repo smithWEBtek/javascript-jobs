@@ -5,6 +5,7 @@ $(function () {
   employerLoginForm()
   employerNewForm() 
   employeeNewForm() 
+  submitEmployeeNewForm()
   jobIndex()
 
 })

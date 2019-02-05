@@ -5,7 +5,7 @@ $(function () {
 const employerNewForm = () => {
   $('span#new_employer').on("click", function (e) {
     e.preventDefault()
-    debugger
+    // debugger
 
     $.ajax({
       url: 'http://0.0.0.0:3000/employers/new',

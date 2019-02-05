@@ -15,7 +15,12 @@ class EmployeesController < ApplicationController
 
     if @employee.save
       session[:employee_id] = @employee.id
+      employee = Employee.find_by(id: params[:id])
       redirect_to employee_path(@employee)
+      # respond_to do |format|
+      #   format.html {render 'employees/show', layout: false}
+      #   format.json {render json: employee}
+      # end
     else
       render :new
     end
@@ -26,6 +31,12 @@ class EmployeesController < ApplicationController
     if  current_user != @employee
       redirect_to employee_path(@current_user)
     end
+      # respond_to do |format|
+      #   format.html {render :show, layout: false}
+        # format.json {
+          render json: @employee.to_json
+        # }
+      # end
   end
 
 private

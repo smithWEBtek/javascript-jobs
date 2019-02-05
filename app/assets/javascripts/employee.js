@@ -5,8 +5,6 @@ $(function () {
 const employeeNewForm = () => {
   $('span#new_employee').on("click", function (e) {
     e.preventDefault()
-    debugger
-
     $.ajax({
       url: 'http://0.0.0.0:3000/employees/new',
       method: 'GET',
@@ -15,6 +13,26 @@ const employeeNewForm = () => {
       $('div#app-div-id').html(response)
 
     })
+  })
+}
+
+const submitEmployeeNewForm = () => {
+  $('#new_employee_form').on("click", function(e) {
+    
+    e.preventDefault()
+  
+    $.ajax({
+      type: "POST",
+      dataType: $(this).serialize(),
+      url: this.action
+    }).success(function (response) {
+      debugger
+      alert("you submited the form")
+      $('div#app-div-id').html(response)
+
+    })
+   
+    
   })
 }
 
