@@ -7,7 +7,8 @@ $(function () {
   // employeeNewForm() 
   jobIndex()
   $('a.navbar-brand#root').on('click', (e) => rootPage(e));
-  $('span#new_employee').on("click", (e) => employeeNewForm(e));
+  $('span#new_employee').on("click", employeeNewForm);
+  $('#new_employee_form').on("submit", submitEmployeeNewForm )
 
 })
 
@@ -25,13 +26,13 @@ var employeeNewForm = (e) => {
       dataType: 'html'
     }).success(function (response) {
       $('div#app-div-id').html(response)
-      submitEmployeeNewForm();
+      // submitEmployeeNewForm();
     })
   // })
 }
 
-const submitEmployeeNewForm = () => {
-  $('#new_employee_form').on("submit", function(e) {
+const submitEmployeeNewForm = (e) => {
+  // $('#new_employee_form').on("submit", function(e) {
 
     e.preventDefault()
     debugger;
@@ -45,7 +46,7 @@ const submitEmployeeNewForm = () => {
       $('div#app-div-id').html(response)
 
     })
-  })
+  // })
 }
 
 const employeeLoginForm = () => {
