@@ -7,7 +7,11 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    render :new, layout: false 
+    # render :new, layout: false
+      respond_to do |format|
+        format.html {render :new, layout: false}
+        format.json {render json: @employee}
+      end 
   end
 
   def create
@@ -16,11 +20,11 @@ class EmployeesController < ApplicationController
     if @employee.save
       session[:employee_id] = @employee.id
       employee = Employee.find_by(id: params[:id])
-      redirect_to employee_path(@employee)
-      # respond_to do |format|
-      #   format.html {render 'employees/show', layout: false}
-      #   format.json {render json: employee}
-      # end
+      # redirect_to employee_path(@employee)
+      respond_to do |format|
+        format.html {render 'employees/show', layout: false}
+        format.json {render json: employee_path(@employee)}
+      end
     else
       render :new
     end
@@ -33,7 +37,7 @@ class EmployeesController < ApplicationController
     end
       respond_to do |format|
         format.html {render :show, layout: false}
-        format.json { render json: @employee }
+        format.json { render json: employee_path(@current_user) }
       end
   end
 

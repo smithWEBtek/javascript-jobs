@@ -5,9 +5,10 @@ $(function () {
   employerLoginForm()
   // employerNewForm() 
   // employeeNewForm() 
+  employeeNewForm()
   jobIndex()
   $('a.navbar-brand#root').on('click', (e) => rootPage(e));
-  $('span#new_employee').on("click", employeeNewForm);
+  // $('span#new_employee').on("click", employeeNewForm);
   $('#new_employee_form').on("submit", submitEmployeeNewForm )
 
 })
@@ -16,8 +17,8 @@ $(function () {
 //////////////// Employee /////////////////////
 
 
-var employeeNewForm = (e) => {
-  // $('span#new_employee').on("click", function (e) {
+var employeeNewForm = () => {
+  $('span#new_employee').on("click", function (e) {
     e.preventDefault()
     clearWelcome()
     $.ajax({
@@ -28,7 +29,7 @@ var employeeNewForm = (e) => {
       $('div#app-div-id').html(response)
       // submitEmployeeNewForm();
     })
-  // })
+  })
 }
 
 const submitEmployeeNewForm = (e) => {
